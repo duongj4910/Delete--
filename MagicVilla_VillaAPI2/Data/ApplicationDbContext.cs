@@ -13,7 +13,7 @@ namespace MagicVilla_VillaAPI2.Data
         }
 
         public DbSet<Villa> Villas { get; set; }
-        //public DbSet<VillaNumber> VillaNumbers { get; set; } //create table for database
+        public DbSet<VillaNumber> VillaNumbers { get; set; } //create table for database
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
