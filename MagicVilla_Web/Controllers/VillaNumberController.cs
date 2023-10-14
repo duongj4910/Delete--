@@ -13,7 +13,6 @@ namespace MagicVilla_Web.Controllers
 {
     public class VillaNumberController : Controller
     {
-
             private readonly IVillaNumberService _villaNumberService;
             private readonly IVillaService _villaService;
             private readonly IMapper _mapper;
@@ -35,6 +34,7 @@ namespace MagicVilla_Web.Controllers
                 }
                 return View(list);
             }
+
         /*
             public async Task<IActionResult> CreateVillaNumber()
             {
