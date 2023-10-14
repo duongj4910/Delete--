@@ -89,7 +89,7 @@ namespace MagicVilla_VillaAPI2.Controllers
             {
                 if (await _dbVilla.GetAsync(u => u.Name.ToLower() == createDTO.Name.ToLower()) != null)
                 {
-                    ModelState.AddModelError("CustomerError", "Villa already exists");
+                    ModelState.AddModelError("ErrorMessages", "Villa already exists");
                     return BadRequest(ModelState);
                 }
                 if (createDTO == null)
