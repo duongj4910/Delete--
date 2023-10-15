@@ -1,4 +1,5 @@
-﻿using MagicVilla_VillaAPI2.Models;
+﻿using MagicVilla_Villa.API2.Models;
+using MagicVilla_VillaAPI2.Models;
 using Microsoft.EntityFrameworkCore;
 
 
@@ -12,7 +13,7 @@ namespace MagicVilla_VillaAPI2.Data
         {
 
         }
-
+        public DbSet<LocalUser> LocalUsers { get; set; }
         public DbSet<Villa> Villas { get; set; }
         public DbSet<VillaNumber> VillaNumbers { get; set; } //create table for database
 
