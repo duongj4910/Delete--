@@ -4,6 +4,7 @@ using MagicVilla_VillaAPI2.Data;
 using MagicVilla_VillaAPI2.Models;
 using MagicVilla_VillaAPI2.Models.Dto;
 using MagicVilla_VillaAPI2.Repository;
+using Microsoft.AspNetCore.Authorization;
 //using MagicVilla_Web.Models.Dto;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.JsonPatch;
@@ -30,6 +31,7 @@ namespace MagicVilla_VillaAPI2.Controllers
 
         }
         [HttpGet]
+        [Authorize]
         [ProducesResponseType(StatusCodes.Status200OK)]
 
         public async Task<ActionResult<APIResponse>> GetVillas()
@@ -50,6 +52,8 @@ namespace MagicVilla_VillaAPI2.Controllers
         }
 
         [HttpGet("{id:int}", Name = "GetVilla")]
+        [Authorize(Roles = "admin")]
+
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -114,6 +118,8 @@ namespace MagicVilla_VillaAPI2.Controllers
         }
 
         [HttpDelete("{id:int}", Name = "DeleteVilla")]
+        [Authorize(Roles = "CUSTOM")]
+
         public async Task<ActionResult<APIResponse>> DeleteVilla(int id) //with IActionREsult do not have to include return type 
         {
             try
