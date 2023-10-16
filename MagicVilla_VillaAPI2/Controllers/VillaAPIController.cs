@@ -31,7 +31,6 @@ namespace MagicVilla_VillaAPI2.Controllers
 
         }
         [HttpGet]
-        [Authorize]
         [ProducesResponseType(StatusCodes.Status200OK)]
 
         public async Task<ActionResult<APIResponse>> GetVillas()
@@ -52,7 +51,7 @@ namespace MagicVilla_VillaAPI2.Controllers
         }
 
         [HttpGet("{id:int}", Name = "GetVilla")]
-        [Authorize(Roles = "admin")]
+      
 
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -118,7 +117,7 @@ namespace MagicVilla_VillaAPI2.Controllers
         }
 
         [HttpDelete("{id:int}", Name = "DeleteVilla")]
-        [Authorize(Roles = "CUSTOM")]
+        [Authorize(Roles = "admin")]
 
         public async Task<ActionResult<APIResponse>> DeleteVilla(int id) //with IActionREsult do not have to include return type 
         {

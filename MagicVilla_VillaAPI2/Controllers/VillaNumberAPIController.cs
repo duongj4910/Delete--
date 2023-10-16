@@ -4,12 +4,14 @@ using MagicVilla_VillaAPI2.Data;
 using MagicVilla_VillaAPI2.Models;
 using MagicVilla_VillaAPI2.Models.Dto;
 using MagicVilla_VillaAPI2.Repository;
+using Microsoft.AspNetCore.Authorization;
 //using MagicVilla_Web.Models.Dto;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualBasic;
+using System.Data;
 using System.Net;
 using System.Reflection.Metadata.Ecma335;
 //using static System.Runtime.InteropServices.JavaScript.JSType;
@@ -82,6 +84,7 @@ namespace MagicVilla_VillaAPI2.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "admin")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -122,6 +125,7 @@ namespace MagicVilla_VillaAPI2.Controllers
         }
 
         [HttpDelete("{id:int}", Name = "DeleteVillaNumber")]
+        [Authorize(Roles = "admin")]
         public async Task<ActionResult<APIResponse>> DeleteVillaNumber(int id) //with IActionREsult do not have to include return type 
         {
             try
