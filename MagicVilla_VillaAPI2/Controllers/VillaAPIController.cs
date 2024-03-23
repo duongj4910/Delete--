@@ -82,6 +82,7 @@ namespace MagicVilla_VillaAPI2.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "admin")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -142,6 +143,7 @@ namespace MagicVilla_VillaAPI2.Controllers
         }
 
         [HttpPut("{id:int}", Name = "UpdateVilla")]
+        [Authorize(Roles = "admin")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
 

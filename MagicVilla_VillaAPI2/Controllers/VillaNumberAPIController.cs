@@ -149,6 +149,7 @@ namespace MagicVilla_VillaAPI2.Controllers
         }
 
         [HttpPut("{id:int}", Name = "UpdateVillaNumber")]
+        [Authorize(Roles = "admin")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
 
